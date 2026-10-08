@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>NGO Connect | Donation Management</title><link rel="stylesheet" href="style.css"></head>
+<body>
+<div class="sidebar">
+  <div class="brand"><div class="logo">❤</div><div><b>NGO Connect</b><span>Donation Management</span></div></div>
+  <button class="nav active" onclick="showSection('dashboard',this)">⌂ Dashboard</button>
+  <button class="nav" onclick="showSection('donors',this)">◉ Donors</button>
+  <button class="nav" onclick="showSection('campaigns',this)">◆ Campaigns</button>
+  <button class="nav" onclick="showSection('donations',this)">↗ Donations</button>
+  <button class="nav" onclick="showSection('volunteers',this)">✦ Volunteers</button>
+  <div class="side-note"><b>Make an impact.</b><br>Every contribution moves a campaign closer to its goal.</div>
+</div>
+<main>
+<header><div><p class="eyebrow">NGO OPERATIONS</p><h1 id="pageTitle">Good things start here.</h1><p class="muted">A simple view of people, campaigns and every donation.</p></div>
+<button class="primary" onclick="openDonationModal()">＋ Record Donation</button></header>
+
+<section id="dashboard" class="page active">
+<div class="hero"><div><p class="eyebrow">IMPACT OVERVIEW</p><h2>Together, we can make change visible.</h2><p>Track donors, active campaigns, volunteers and donation flow from one place.</p></div><div class="hero-icon">❤</div></div>
+<div class="cards"><div class="card"><span>Total Donors</span><strong id="statDonors">—</strong><small>people supporting the NGO</small></div>
+<div class="card"><span>Campaigns</span><strong id="statCampaigns">—</strong><small>active initiatives</small></div>
+<div class="card"><span>Total Donations</span><strong id="statDonations">—</strong><small>recorded contributions</small></div>
+<div class="card"><span>Volunteers</span><strong id="statVolunteers">—</strong><small>people helping out</small></div></div>
+<div class="grid2"><div class="panel"><div class="panel-head"><div><h3>Campaign progress</h3><p>Live totals updated by the database trigger.</p></div></div><div id="campaignProgress"></div></div>
+<div class="panel"><div class="panel-head"><div><h3>SQL features</h3><p>Requirements demonstrated in the project.</p></div></div>
+<div class="feature"><b>JOIN</b><span>Donation + donor + campaign report</span></div><div class="feature"><b>SUBQUERY</b><span>Donors above average donation</span></div><div class="feature"><b>PROCEDURE</b><span>Record donation safely</span></div><div class="feature"><b>FUNCTION</b><span>Calculate campaign total</span></div><div class="feature"><b>TRIGGER</b><span>Update campaign donation amount</span></div></div></div>
+</section>
+
+<section id="donors" class="page"><div class="section-title"><div><h2>Donors</h2><p>People who support the mission.</p></div><button class="primary" onclick="showAddDonor()">＋ Add Donor</button></div><div class="panel"><div id="donorTable"></div></div></section>
+<section id="campaigns" class="page"><div class="section-title"><div><h2>Campaigns</h2><p>See goals and progress at a glance.</p></div><button class="primary" onclick="showAddCampaign()">＋ Add Campaign</button></div><div id="campaignGrid" class="campaign-grid"></div></section>
+<section id="donations" class="page"><div class="section-title"><div><h2>Donations</h2><p>JOIN report: every donation with donor and campaign details.</p></div><div class="actions"><button class="secondary" onclick="loadJoin()">↻ Refresh</button><button class="primary" onclick="openDonationModal()">＋ Record</button></div></div>
+<div class="panel"><div id="donationTable"></div></div><div class="panel subquery"><div class="panel-head"><div><h3>Above-average donors</h3><p>SUBQUERY result based on the average individual donation.</p></div></div><div id="averageTable"></div></div></section>
+<section id="volunteers" class="page"><div class="section-title"><div><h2>Volunteers</h2><p>The people behind the scenes.</p></div><button class="primary" onclick="showAddVolunteer()">＋ Add Volunteer</button></div><div class="panel"><div id="volunteerTable"></div></div></section>
+</main>
+
+<div id="modal" class="modal"><div class="modal-box"><button class="close" onclick="closeModal()">×</button><div id="modalContent"></div></div></div>
+<script src="script.js"></script></body></html>
